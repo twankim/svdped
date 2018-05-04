@@ -1,3 +1,10 @@
+# Ignore some folders
+data/
+etc/
+results/
+papers/
+pretrained/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
