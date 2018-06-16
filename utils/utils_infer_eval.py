@@ -143,7 +143,6 @@ class Detector:
         self.sess.close()
 
     def detect(self, image, lidar_xyz):
-        self.load_sess()
         image_np_expanded = np.expand_dims(image, axis=0)
         a = time.time()
         boxes,scores,classes,dists = self.sess.run(
