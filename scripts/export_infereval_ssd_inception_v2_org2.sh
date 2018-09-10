@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 MODEL_BASE=ssd_inception_v2
-MODEL_NAME=${MODEL_NAME}_org2
+MODEL_NAME=${MODEL_BASE}_org2
 CFG_PIPELINE=configs/${MODEL_BASE}_carstop2.config
 CKPT_NAME=model.ckpt-40000
 CKPT_PATH=/data/cstopp/tf/${MODEL_NAME}/${CKPT_NAME}

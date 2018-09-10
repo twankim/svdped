@@ -139,15 +139,15 @@ def inception_v2_base(inputs,
         # (Because input is gray scale)
         net2 = slim.conv2d(
             lidars_front,
-            depth(8), [7, 7],
+            depth(16), [7, 7],
             stride=2,
             weights_initializer=trunc_normal(1.0),
             scope=end_point)
-        # 112 x 112 x 8
+        # 112 x 112 x 16
         end_point = 'MaxPool_2a_3x3_lf'
         net2 = slim.max_pool2d(net2, [3, 3], scope=end_point, stride=2)
         end_points[end_point] = net2
-        # 56 x 56 x 8
+        # 56 x 56 x 16
 
       # ---------------------- Merge Start ------------------------
       #TODO: Think about when to merge
@@ -155,7 +155,7 @@ def inception_v2_base(inputs,
       end_point = 'Merge_im_lidar'
       net = tf.concat(values=[net,net2],axis=3)
       end_points[end_point] = net
-      # 56 x 56 x 68
+      # 56 x 56 x 80
       end_point = 'Merge_Conv_2d'
       net = slim.conv2d(net, depth(64), [1, 1], scope=end_point,
                         weights_initializer=trunc_normal(0.1))

@@ -23,8 +23,7 @@ from object_detection.utils import ops
 # from nets import inception_v2
 
 from utils import inception_v2_rtpdd as inception_v2
-from utils import inception_v2_rtpdd_mp as inception_v2_mp
-from utils import inception_v2_rtpdd_mp as inception_v2_late
+from utils import inception_v2_rtpdd_late as inception_v2_late
 from utils import ssd_meta_arch_rtpdd as ssd_meta_arch
 
 slim = tf.contrib.slim
@@ -146,7 +145,7 @@ class SSDInceptionV2FeatureExtractorLate(ssd_meta_arch.SSDFeatureExtractor):
         pretrained batch norm params.
       reuse_weights: Whether to reuse variables. Default is None.
     """
-    super(SSDInceptionV2FeatureExtractorMP, self).__init__(
+    super(SSDInceptionV2FeatureExtractorLate, self).__init__(
         is_training, depth_multiplier, min_depth, pad_to_multiple,
         conv_hyperparams, batch_norm_trainable, reuse_weights)
 

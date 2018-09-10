@@ -114,7 +114,7 @@ class Detector:
         self.sess.close()
 
     def detect(self, image):
-        self.load_sess()
+        # self.load_sess()
         image_np_expanded = np.expand_dims(image, axis=0)
         boxes,scores,classes,num = self.sess.run(
                 [self.det_boxes,self.det_scores,self.det_classes,self.num_det],
